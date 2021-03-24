@@ -21,6 +21,5 @@ deploy:
   - provider: script
     script: NUM=2 make deploy
     on:
-      branches:
-        only:
-          - /^epic-.*$/
+      all_branches: true
+      condition: "$TRAVIS_BRANCH ~= ^epic-.*$"
