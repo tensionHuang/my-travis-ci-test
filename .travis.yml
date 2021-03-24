@@ -22,4 +22,4 @@ deploy:
     script: NUM=2 make deploy
     on:
       all_branches: true
-      condition: "$TRAVIS_BRANCH ~= ^epic-.*$"
+      condition: $TRAVIS_BRANCH =~ ^(epic-.*)$
