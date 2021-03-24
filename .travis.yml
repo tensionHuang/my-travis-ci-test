@@ -1,0 +1,26 @@
+sudo: required
+
+services:
+  - docker
+
+os:
+  - linux
+
+install:
+  # nothing but echo msg
+  - echo "install"
+
+script:
+  - make build
+
+deploy:
+  - provider: script
+    script: NUM=1 make deploy
+    on:
+      branch: master
+  - provider: script
+    script: NUM=2 make deploy
+    on:
+      branches:
+        only:
+          - /^epic-.*$/
